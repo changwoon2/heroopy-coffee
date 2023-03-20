@@ -10,8 +10,15 @@ a {
 }
 header {
   background-color: #f6f5f0;
+  position: fixed;
+  top: 0;
+  z-index: 9;
+  width: 100%;
+  border-bottom: 1px solid #c8c8c8;
 }
-
+img {
+  display: block;
+}
 header .inner {
   width: 1100px;
   margin: 0 auto;
@@ -182,4 +189,19 @@ header .main-menu .item .item_contents .contents_texture h4 {
 header .main-menu .item .item_contents .contents_texture p {
   color: #ea9926;
   margin: 4px 0 14px;
+}
+
+header .badges {
+  position: fixed;
+  top: 132px;
+  right: 12px;
+  z-index: 9;
+}
+
+header .badges .badge {
+  border-radius: 10px;
+  margin-bottom: 12px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  overflow: hidden;
 }
