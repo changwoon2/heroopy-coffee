@@ -265,7 +265,17 @@ header .badges .badge {
   color: #333;
   background-color: #fff;
 }
-
+.btn.btn--primary {
+  color: #fff;
+  background-color: #ea9926;
+  border: none;
+}
+.btn.btn--primary:hover {
+  background-color: #cc8823;
+}
+.btn.block {
+  width: 100%;
+}
 footer {
   background-color: #272727;
   border-top: 1px solid #333;
