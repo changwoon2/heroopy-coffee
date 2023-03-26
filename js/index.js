@@ -79,7 +79,7 @@ gsap.to(".floating1", 1.5, {
   ease: Power1.easeInOut,
 });
 gsap.to(".floating2", 2, {
-  delay: .5,
+  delay: 0.5,
   y: 15,
   repeat: -1,
   yoyo: true,
@@ -91,4 +91,14 @@ gsap.to(".floating3", 3, {
   repeat: -1,
   yoyo: true,
   ease: Power1.easeInOut,
+});
+
+const spyEls = document.querySelectorAll("section.scroll-spy");
+spyEls.forEach(function (spyEl) {
+  new ScrollMagic.Scene({
+    triggerElement: spyEl,
+    triggerHook: 0.8,
+  })
+    .setClassToggle(spyEl, "show")
+    .addTo(new ScrollMagic.Controller());
 });
