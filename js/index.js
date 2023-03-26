@@ -16,6 +16,7 @@ searchInputEl.addEventListener("blur", function () {
 });
 
 const badgeEl = document.querySelector("header .badges");
+const toTopEl = document.querySelector("#to-top");
 window.addEventListener("scroll", function () {
   console.log(window.scrollY);
   if (window.scrollY > 500) {
@@ -23,12 +24,26 @@ window.addEventListener("scroll", function () {
       opacity: 0,
       display: "none",
     });
+    gsap.to(toTopEl, 0.6, {
+      opacity: 1,
+      x: 0,
+    });
   } else {
     gsap.to(badgeEl, 0.6, {
       opacity: 1,
       display: "block",
     });
+    gsap.to(toTopEl, 0.6, {
+      opacity: 0,
+      x: 100,
+    });
   }
+});
+
+toTopEl.addEventListener("click", function () {
+  gsap.to(window, 0.6, {
+    scrollTo: 0,
+  });
 });
 
 const fadeEls = document.querySelectorAll(".visual .fade-in");
@@ -102,3 +117,17 @@ spyEls.forEach(function (spyEl) {
     .setClassToggle(spyEl, "show")
     .addTo(new ScrollMagic.Controller());
 });
+
+new Swiper(".awards .swiper", {
+  autoplay: true,
+  loop: true,
+  spaceBetween: 30,
+  slidesPerView: 5,
+  navigation: {
+    prevEl: ".awards .swiper-button-prev",
+    nextEl: ".awards .swiper-button-next",
+  },
+});
+
+const thisYear = document.querySelector(".this-year");
+thisYear.textContent = new Date().getFullYear();
